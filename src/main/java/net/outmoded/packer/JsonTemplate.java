@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public interface Writable {
+public interface JsonTemplate {
 
     public String getFileName();
 
