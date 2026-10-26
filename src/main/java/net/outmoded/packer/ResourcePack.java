@@ -73,8 +73,14 @@ public class ResourcePack {
             long startTime = System.currentTimeMillis();
             FileOutputStream fos = null;
             try {
+                Path path = Path.of(writePath).getParent();
+
+                if (!Files.isDirectory(path)){
+                    Files.createDirectories(path);
+                }
+
                 fos = new FileOutputStream(writePath);
-            } catch (FileNotFoundException e) {
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             BufferedOutputStream bos = new BufferedOutputStream(fos);
