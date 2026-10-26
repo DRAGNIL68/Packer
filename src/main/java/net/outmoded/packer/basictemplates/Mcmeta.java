@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class McMeta implements JsonTemplate {
 
-    @JsonProperty("pack")
+    @JsonProperty("pack") // <- all json properties must have a @JsonProperty annotation
     private final Map<String, Object> pack = new HashMap<>();
 
     public McMeta(String description, int version){

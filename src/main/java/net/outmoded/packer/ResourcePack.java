@@ -56,13 +56,11 @@ public class ResourcePack {
         
         if (Files.isDirectory(path)){
             throw new IllegalArgumentException("path cannot be a directory");
-            // run error
         }
         
         try (InputStream input = Files.newInputStream(path)) {
             byteData.put(rpPath, input.readAllBytes());
         }
-        
     }
 
 
