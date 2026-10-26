@@ -67,7 +67,7 @@ public class ResourcePack {
      */
     public CompletableFuture<Void> generate(String writePath, int compressionLevel, boolean debug){
 
-        return CompletableFuture.runAsync(() -> {
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
             ConcurrentHashMap<String, byte[]> byteDataSnapshot = new ConcurrentHashMap<>(byteData); // async safety I hope
 
             long startTime = System.currentTimeMillis();
@@ -94,9 +94,6 @@ public class ResourcePack {
                     zipOut.putNextEntry(zipEntry);
 
                     zipOut.write(bytes, 0, bytes.length);
-
-
-
                     zipOut.closeEntry();
 
                 } catch (IOException e) {
@@ -116,6 +113,13 @@ public class ResourcePack {
                 throw new RuntimeException(e);
             }
         });
+
+        future.exceptionally(ex -> {
+            ex.printStackTrace();
+            return null;
+        });
+
+        return future;
     }
 
     /**
