@@ -10,7 +10,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
@@ -25,7 +24,6 @@ public class ResourcePack {
         OBJECT_MAPPER.setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE);
         OBJECT_MAPPER.setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE);
         OBJECT_MAPPER.setVisibility(PropertyAccessor.IS_GETTER, JsonAutoDetect.Visibility.NONE);
-
     }
 
     private final ConcurrentHashMap<String, byte[]> byteData = new ConcurrentHashMap<>(); // new file path : data
@@ -70,6 +68,8 @@ public class ResourcePack {
     public CompletableFuture<Void> generate(String writePath, int compressionLevel, boolean debug){
 
         return CompletableFuture.runAsync(() -> {
+            ConcurrentHashMap<String, byte[]> byteDataSnapshot = new ConcurrentHashMap<>(byteData); // async safety I hope
+
             long startTime = System.currentTimeMillis();
             FileOutputStream fos = null;
             try {
@@ -82,7 +82,7 @@ public class ResourcePack {
             ZipOutputStream zipOut = new ZipOutputStream(bos);
             zipOut.setLevel(compressionLevel);
 
-            for (Map.Entry<String, byte[]> entry : byteData.entrySet()){
+            for (Map.Entry<String, byte[]> entry : byteDataSnapshot.entrySet()){
                 String key = entry.getKey();
                 byte[] bytes = entry.getValue();
 
@@ -116,6 +116,13 @@ public class ResourcePack {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    /**
+     * disposes of data in resource pack
+     */
+    public void clear(){
+        byteData.clear();
     }
 
     /**
