@@ -16,9 +16,9 @@ Packer is a simple library, to allow any developer to generate Minecraft resourc
 </repositories>
 
 <dependency>
-    <groupId>com.github.User</groupId>
-    <artifactId>Repo</artifactId>
-    <version>Tag</version>
+    <groupId>com.github.DRAGNIL68</groupId>
+    <artifactId>Packer</artifactId>
+    <version>v1.1</version>
 </dependency>
 ```
 gradle
@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 }
 
 dependencies {
-  implementation 'com.github.User:Repo:Tag'
+  implementation 'com.github.DRAGNIL68:Packer:v1.1'
 }
 
 ```
