@@ -10,6 +10,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
@@ -27,40 +28,48 @@ public class ResourcePack {
 
     }
 
-    private final ConcurrentHashMap<String, byte[]> byteData = new ConcurrentHashMap<>(); // new file name : data
+    private final ConcurrentHashMap<String, byte[]> byteData = new ConcurrentHashMap<>(); // new file path : data
 
-    public static ResourcePack create(){
-        return new ResourcePack();
+    public ResourcePack(){}
+
+    /**
+     *
+     * @param template JSON file
+     */
+    public void writeJson(JsonTemplate template) throws JsonProcessingException{
+        byteData.put(template.getFilePath(), OBJECT_MAPPER.writeValueAsString(template).getBytes(StandardCharsets.UTF_8));
     }
 
-    private ResourcePack(){
+    /**
+     * don't use this if you don't know how
+     * @throws IOException thrown if it cant read the InputStream
+     */
+
+    public void writeInputStream(String rpPath, InputStream inputStream) throws IOException{
+        byteData.put(rpPath, inputStream.readAllBytes());
     }
 
-    public void testWriteJson(String newPath, JsonTemplate template) {
-        try {
-            byteData.put(newPath, OBJECT_MAPPER.writeValueAsString(template).getBytes(StandardCharsets.UTF_8));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+    public void write(String rpPath, Path path) throws IOException, IllegalArgumentException{
+        if (!Files.exists(path.getParent())){
+            throw new IllegalArgumentException("path does not exist");
         }
-    }
-
-    public void testWrite(String newPath, Path path){
-        if (!Files.exists(path))
-            return; // run error
-
-        if (Files.isDirectory(path))
-            return; // run error
-
+        
+        if (Files.isDirectory(path)){
+            throw new IllegalArgumentException("path cannot be a directory");
+            // run error
+        }
+        
         try (InputStream input = Files.newInputStream(path)) {
-            byteData.put(newPath, input.readAllBytes());
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            byteData.put(rpPath, input.readAllBytes());
         }
+        
     }
 
 
-    public CompletableFuture<Void> write(String writePath, int compressionLevel, boolean debug){
+    /**
+     * generatest the rp
+     */
+    public CompletableFuture<Void> generate(String writePath, int compressionLevel, boolean debug){
 
         return CompletableFuture.runAsync(() -> {
             long startTime = System.currentTimeMillis();
@@ -80,7 +89,8 @@ public class ResourcePack {
                 byte[] bytes = entry.getValue();
 
                 if (debug)
-                    System.out.println("writing file: "+key);
+                    log("writing file: "+key);
+
                 try {
                     ZipEntry zipEntry = new ZipEntry(key);
                     zipOut.putNextEntry(zipEntry);
@@ -99,7 +109,7 @@ public class ResourcePack {
             long duration = System.currentTimeMillis() - startTime;
 
             if (debug)
-                System.out.println("time taken: "+duration+"ms");
+                log("time taken: "+duration+"ms");
 
             try {
                 zipOut.close();
@@ -108,5 +118,13 @@ public class ResourcePack {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    /**
+     * if your using this in a Minecraft plugin override this
+     * to your plugins logger to avoid PaperMc complaining
+     */
+    public void log(String string){
+        System.out.println(string);
     }
 }

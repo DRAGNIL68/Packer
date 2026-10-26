@@ -1,44 +1,30 @@
 package net.outmoded.packer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import net.outmoded.packer.basictemplates.GeneratedItemModel;
+import net.outmoded.packer.basictemplates.McMeta;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 import java.util.zip.Deflater;
 
-public class ExampleJson implements JsonTemplate{
+public class ExampleJson{
 
-    @JsonProperty("hello_frog")
-    private String hello = "frog";
-
-    @JsonProperty("hello_frog123")
-    private String[] frog = {"adad", "adada"," frog123"};
-
-    private String fileName;
-
-    @Override
-    public String getFileName() {
-        return fileName;
-    }
-
-    @Override
-    public @NotNull String getFilePath() {
-        return fileName;
-    }
-
-    @Override
-    public void setFilePath(String newFilePath) {
-        fileName = newFilePath;
-    }
-
-    // this is jsut an example of how to generate a pack
+    // this is just an example of how to generate a pack
     public static void main(String[] args) {
-        ResourcePack resourcePack = ResourcePack.create();
-        resourcePack.testWrite("balls.png" , Path.of("C:/Users/linga/Downloads/image.png"));
-        resourcePack.testWrite("frog/leaf.jar",Path.of("C:/Users/linga/Downloads/leaf-1.21.11-179.jar"));
-        resourcePack.testWriteJson("mc.meta", new ExampleJson());
-        CompletableFuture<Void> future = resourcePack.write("C:/Users/linga/Downloads/testzip.zip", (Deflater.DEFAULT_COMPRESSION), true);
+        ResourcePack resourcePack = new ResourcePack();
+        try {
+            resourcePack.writeJson(new McMeta("hello",  75));
+            resourcePack.writeJson(new GeneratedItemModel("test:folder/test.png", GeneratedItemModel.modelType.generated, "assets/test/models/item/test.json"));
+
+        } catch (IOException e) {
+            System.out.println("cant find file "+e.getMessage());
+        }
+
+
+        CompletableFuture<Void> future = resourcePack.generate("C:/Users/linga/Downloads/testzip.zip", (Deflater.DEFAULT_COMPRESSION), true);
 
 
         while (!future.isDone()){
