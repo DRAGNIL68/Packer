@@ -3,7 +3,7 @@ Packer is a simple library, to allow any developer to generate Minecraft resourc
 
 ### Why this?:
   - fast and easy to use: I wanted a tool that was not overly complicated, and would allow anyone to generate packs fast and with minimal effort.
-  - why so simple?: Instead of implementing every single feature that a resource pack can do, I provide a simple way to easily add only what you need. That way no matter what version you use this library still works fine.
+  - why so simple?: Instead of implementing every single feature that a resource pack can do, I provide a simple way to add only what you need. That way, no matter what version you use, this library will still work fine.
 
 ### Dependency:
   maven
