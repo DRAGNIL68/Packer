@@ -9,6 +9,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+
+ */
+
 import static net.outmoded.packer.PackerUtils.splitNamespaceId;
 
 public class GeneratedItemModel implements JsonTemplate {

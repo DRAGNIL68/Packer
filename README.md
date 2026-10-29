@@ -38,7 +38,7 @@ dependencies {
 ```
 ## Example
 ### how to generate a pack
-```
+```java
 ResourcePack resourcePack = new ResourcePack();
 try {
     resourcePack.writeJson(new McMeta("hello",  75));
@@ -52,7 +52,7 @@ CompletableFuture<Void> future = resourcePack.generate("C:/Users/linga/Downloads
 ```
 
 ### how to make a custom json element 
-```
+```java
 public class McMeta implements JsonTemplate {
 
     @JsonProperty("pack") // <- all json properties must have a @JsonProperty annotation
@@ -72,7 +72,7 @@ public class McMeta implements JsonTemplate {
 ```
 
 ### what maps to what?
-```
+```java
 @JsonProperty("single_value")
 String string = "hello"; // this turns into "single_value": hello
 

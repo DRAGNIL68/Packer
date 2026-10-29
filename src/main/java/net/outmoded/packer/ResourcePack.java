@@ -1,6 +1,5 @@
 package net.outmoded.packer;
 
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -67,11 +66,13 @@ public class ResourcePack {
      */
     public CompletableFuture<Void> generate(String writePath, int compressionLevel, boolean debug){
 
+
+
         CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
             ConcurrentHashMap<String, byte[]> byteDataSnapshot = new ConcurrentHashMap<>(byteData); // async safety I hope
 
             long startTime = System.currentTimeMillis();
-            FileOutputStream fos = null;
+            FileOutputStream fos;
             try {
                 Path path = Path.of(writePath).getParent();
 

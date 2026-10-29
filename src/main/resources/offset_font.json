@@ -1,0 +1,393 @@
+{
+  "credit":"Made By DRAGNIL68 For The Outmodedlib",
+  "providers": [
+
+    {
+      "type": "space",
+      "advances": {
+        "\uE001": 1,
+        "\uE002": 2,
+        "\uE003": 3,
+        "\uE004": 4,
+        "\uE005": 5,
+        "\uE006": 6,
+        "\uE007": 7,
+        "\uE008": 8,
+        "\uE009": 9,
+        "\uE010": 10,
+        "\uE011": 16,
+        "\uE012": 32,
+        "\uE013": 64,
+        "\uE014": 128,
+        "\uE015": 256,
+        "\uE016": 512,
+        "\uE017": 1024,
+        "\uE037": 0.1,
+        "\uE038": 0.01,
+
+        "\uE018": -1,
+        "\uE019": -2,
+        "\uE020": -3,
+        "\uE021": -4,
+        "\uE022": -5,
+        "\uE023": -6,
+        "\uE024": -7,
+        "\uE025": -8,
+        "\uE026": -9,
+        "\uE027": -10,
+        "\uE028": -16,
+        "\uE029": -32,
+        "\uE030": -64,
+        "\uE031": -128,
+        "\uE032": -256,
+        "\uE033": -512,
+        "\uE034": -1024,
+        "\uE035": -0.1,
+        "\uE036": -0.01
+      }
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE001"
+      ],
+      "height": 1,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE002"
+      ],
+      "height": 2,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE003"
+      ],
+      "height": 3,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE004"
+      ],
+      "height": 4,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE005"
+      ],
+      "height": 5,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE006"
+      ],
+      "height": 6,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE007"
+      ],
+      "height": 7,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE008"
+      ],
+      "height": 8,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE009"
+      ],
+      "height": 9,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE010"
+      ],
+      "height": 10,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE011"
+      ],
+      "height": 16,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE012"
+      ],
+      "height": 32,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE013"
+      ],
+      "height": 64,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE014"
+      ],
+      "height": 128,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE015"
+      ],
+      "height": 256,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE016"
+      ],
+      "height": 512,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE017"
+      ],
+      "height": 1024,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE018"
+      ],
+      "height": -1,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE019"
+      ],
+      "height": -2,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE020"
+      ],
+      "height": -3,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE021"
+      ],
+      "height": -4,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE022"
+      ],
+      "height": -5,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE023"
+      ],
+      "height": -6,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE024"
+      ],
+      "height": -7,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE025"
+      ],
+      "height": -8,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE026"
+      ],
+      "height": -9,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE027"
+      ],
+      "height": -10,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE028"
+      ],
+      "height": -16,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE029"
+      ],
+      "height": -32,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE030"
+      ],
+      "height": -64,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE031"
+      ],
+      "height": -128,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE032"
+      ],
+      "height": -256,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE033"
+      ],
+      "height": -512,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE034"
+      ],
+      "height": -1024,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE035"
+      ],
+      "height": 0,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE036"
+      ],
+      "height": 0,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE037"
+      ],
+      "height": 0,
+      "ascent": -5000,
+      "type": "bitmap"
+    },
+    {
+      "file": "_outmodedlib:invisible1x1.png",
+      "chars": [
+        "\uE038"
+      ],
+      "height": 0,
+      "ascent": -5000,
+      "type": "bitmap"
+    }
+
+  ]
+}
