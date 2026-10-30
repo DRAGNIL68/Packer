@@ -48,8 +48,12 @@ try {
 }
 
 
-CompletableFuture<Void> future = resourcePack.generate("C:/Users/linga/Downloads/testzip.zip", (Deflater.DEFAULT_COMPRESSION), true);
+CompletableFuture<Void> future = resourcePack.generate("C:/Users/linga/Downloads/testzip.zip", (Deflater.DEFAULT_COMPRESSION), true).join();
 ```
+### A word of warning
+add a ```.join()```  at the end of the ResourcePack#generate() if you're not running this in Minecraft
+as the program will finish before the generation has finished.
+
 
 ### how to make a custom json element 
 ```java

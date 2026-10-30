@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.tools.javac.Main;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -66,6 +67,24 @@ public class ResourcePack {
      */
     public CompletableFuture<Void> generate(String writePath, int compressionLevel, boolean debug){
 
+        InputStream in = ResourcePack.class.getResourceAsStream("/offset_font.json");
+        InputStream in1 = ResourcePack.class.getResourceAsStream("/invisible1x1.png");
+
+        if (in != null ) {
+            try {
+                writeInputStream("assets/_packer/font/offset_font.json" ,in);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        if (in1 != null) {
+            try {
+                writeInputStream("assets/_packer/textures/invisible1x1.png" ,in1);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
 
         CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
@@ -84,6 +103,7 @@ public class ResourcePack {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
             BufferedOutputStream bos = new BufferedOutputStream(fos);
 
             ZipOutputStream zipOut = new ZipOutputStream(bos);
@@ -115,6 +135,7 @@ public class ResourcePack {
 
             try {
                 zipOut.close();
+                bos.close();
                 fos.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
